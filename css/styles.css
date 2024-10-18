@@ -1,0 +1,144 @@
+@import url(./bootstrap.css);
+
+.icon{
+    font-size:20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.navbar, .main-section{
+    display:flex;
+    justify-content: space-between;
+    /* padding:20px;  */
+
+}
+
+.navbar{
+    padding:10px;
+}
+
+.main-section{
+   width:100vw;
+   height:82vh;
+   display:flex;
+   justify-content:space-between;
+   background-image: url(https://www.ticati.com/img/hotel/12386355s.jpg);
+   background-size: cover;
+   background-position: center;
+   background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+.main-description{
+    width:100%;
+    padding:20px;
+    width:50%;
+    display:flex;
+    justify-content:end;
+    flex-direction:column;
+    color:white;
+    
+}
+
+.arrow{
+    background-color: black;
+    border-radius: 50%;
+    padding:5px;
+}
+.arrow:hover{
+    cursor:pointer;
+}
+/* .main-description h2{
+    color:black; 
+} */
+
+/* .main-description, .mini-content{
+    position:absolute;
+    bottom:0;
+} */
+.mini-content{
+    /* background-color:darksalmon; */
+    display:flex;
+    height:100%;
+    width:50%;
+    align-items: center;
+    margin:0 20px 0;
+    justify-content:flex-end;
+}
+
+.scrollable-content{
+    /* background-color:maroon; */
+    display:flex;
+    width:100%;
+    height:100%;
+    overflow-x:auto;
+    scrollbar-width:none;
+    align-items:center;
+
+
+}
+
+.scrollable-content::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in WebKit browsers like Chrome */
+}
+
+.description-mini{
+    background-color:white;
+    height:75%;
+    margin-left:10px;
+    width:178px;
+    flex-shrink:0;
+    flex-grow:0;
+    flex-direction:column;
+    position:relative;
+    align-items:center; 
+    border-radius: 10px;
+    padding:4px;
+
+}
+
+.description-labels{
+    display:flex;
+    justify-content:space-between;
+    
+}
+/* Override Bootstrap img-thumbnail */
+img.img-thumbnail {
+    border: none; 
+    height: 150px; 
+    object-fit: cover; 
+    width: auto;
+    margin-bottom:15px;
+}
+.description-mini button {
+    position: absolute;
+    bottom: 10px; 
+    right: 10px; 
+}
+/* .buttons-div{
+    display:flex;
+    justify-content:space-between;
+
+} */
+.small-text{
+    font-size:14px;
+}
+
+.para-details{
+    margin-top:5px;
+    margin-bottom:10px;
+
+}
+
+/* .footer{
+    /* background-color: green; 
+} */
+/* .description-divide{
+    display:flex;
+    flex-direction:column;
+    background-color:orange;
+    justify-content: space-around;
+    
+}
+.description-mini{
+    background-color:pink;
+} */
