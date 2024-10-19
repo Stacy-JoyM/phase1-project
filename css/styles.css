@@ -1,19 +1,19 @@
 @import url(./bootstrap.css);
 
-.icon{
-    font-size:20px;
+.icon, .navbar{
+    font-size:18px;
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .navbar, .main-section{
     display:flex;
     justify-content: space-between;
-    /* padding:20px;  */
 
 }
 
 .navbar{
-    padding:10px;
+    align-items:center;
+
 }
 
 .main-section{
@@ -36,6 +36,7 @@
     justify-content:end;
     flex-direction:column;
     color:white;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.9);
     
 }
 
@@ -93,7 +94,11 @@
     align-items:center; 
     border-radius: 10px;
     padding:4px;
+    position:relative;
 
+}
+.description-mini:hover{
+    cursor:pointer; 
 }
 
 .description-labels{
@@ -109,10 +114,15 @@ img.img-thumbnail {
     width: auto;
     margin-bottom:15px;
 }
+.buttons{
+    /* display:flex; */
+    /* justify-content:space-around; */
+    position:absolute;
+    bottom:10px;
+    right:5px;
+}
 .description-mini button {
-    position: absolute;
-    bottom: 10px; 
-    right: 10px; 
+    margin-right:10px;
 }
 /* .buttons-div{
     display:flex;
@@ -128,6 +138,7 @@ img.img-thumbnail {
     margin-bottom:10px;
 
 }
+
 
 /* .footer{
     /* background-color: green; 

@@ -9,12 +9,12 @@
     </head>
     <body>
         <div>
-            <nav class="navbar">
+            <nav class="navbar px-3 pt-1">
                 <div class="icon">
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <span>Safiri</span> 
-                </div>  
-                     <p> Welcome </p>
+                    <span >Safari</span> 
+                </div >  
+                    <button class="btn btn-primary" onclick="alert(`Welcome to Safari App`)"> Welcome</button>
                 </div>
             </nav>
             <div class="main-section" id="main-section">
@@ -31,16 +31,16 @@
                     </div>
             </div>
         </div>
-        <!-- Second Modal Form for booking -->
+        <!-- Modal Form for booking -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Select Dates</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Select Dates To Visit </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form class="row g-3">
+                        <form class="row g-3" id="bookingForm">
                             <!-- Start Date Input -->
                             <div class="col-md-6">
                                 <label for="startDate" class="form-label">Start Date</label>
@@ -52,7 +52,6 @@
                                 <label for="endDate" class="form-label">End Date</label>
                                 <input type="date" class="form-control" id="endDate" required>
                             </div>
-
                             <div class="modal-footer">
                                 <!-- Submit Button -->
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -64,7 +63,7 @@
         </div>
   
         <div class="footer"> 
-            <p class="text-center mt-2">Copyright &copy; 2024 YourCompanyName. All rights reserved.</p>
+            <!-- <p class="text-center mt-2">Copyright &copy; 2024 Stacy-JoyM. All rights reserved.</p> -->
 
         </div>
         <script src="./src/index.js"></script>
