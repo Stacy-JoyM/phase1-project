@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //Function that gets destinations
     function getDestinations(){
-        fetch("http://localhost:3000/destinations")
+        fetch("https://phase1-project-gfgp.onrender.com/destinations")
         .then((res)=> res.json())
         .then((data)=>{
             scrollContentsDiv= document.getElementById("scrollable-content")
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
     //Function that gets main display destination details
     function getMainDisplay(destinationId){
-        fetch(`http://localhost:3000/destinations/${destinationId}`)
+        fetch(`https://phase1-project-gfgp.onrender.com/destinations/${destinationId}`)
         .then((response) => response.json())
         .then((data) => {
 
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // Function to fetch bookings from the server
     function fetchBookings() {
-        fetch('http://localhost:3000/bookings')
+        fetch('https://phase1-project-gfgp.onrender.com/bookings')
             .then((response) => response.json())
             .then((data) => {
                 //loop through data then for each data.id push it to the bookingId array
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function(){
         let highestId = bookingsId.reduce((max, booking) => booking > max ? booking : max, 0);
 
         // Post it to booking
-        fetch('http://localhost:3000/bookings', {
+        fetch('https://phase1-project-gfgp.onrender.com/bookings', {
             method: 'POST',
             body: JSON.stringify({
                 destinationId: hotelId,

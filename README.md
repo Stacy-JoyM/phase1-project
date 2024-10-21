@@ -6,7 +6,7 @@
 
 Description: An application that allows user to compare multiple destinations and allows them to select their preferred destination according to their taste and budget.
 
-## Presentation
+### Presentation
 Here are the presenation slides for this project : [Presentation](https://www.canva.com/design/DAGT0BFfX7o/xAfhVbRSSpvBL9VrVb6jHw/edit?utm_content=DAGT0BFfX7o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ### Problem Statement
