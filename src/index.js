@@ -101,9 +101,6 @@ document.addEventListener("DOMContentLoaded", function(){
                     data-bs-target="#exampleModal">
                     Book Us Now
                 </button>                        
-                <div id="updatedBooking-${hotel.id}">
-                   
-                </div> 
             `
             //Change the background image
             mainSectionImg = document.getElementById("main-section")
@@ -197,6 +194,15 @@ document.addEventListener("DOMContentLoaded", function(){
 
             // Add the new id in the bookingid
             bookingsId.push(highestId + 1);
+            
+            //clear form values 
+            document.getElementById("startDate").value = ""
+             document.getElementById("endDate").value = ""
+
+            //Close the modal 
+            const modalElement = document.getElementById("exampleModal");
+            const modalInstance = bootstrap.Modal.getInstance(modalElement);
+            modalInstance.hide(); // Close the modal
 
           
         })
@@ -206,7 +212,5 @@ document.addEventListener("DOMContentLoaded", function(){
 getDestinations()
 fetchBookings()
 handleDescriptionDiv()
-scrollToLeft()
-scrollToRight()
 
 })
