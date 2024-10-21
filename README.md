@@ -2,7 +2,8 @@
 ## Travel App - Joy Muthoka
 ## Date : 14/10/2024
 
-### Destination Post
+### Safari App Overview
+Check out project here: [View Project](https://stacy-joym.github.io/phase1-project/)
 
 Description: An application that allows user to compare multiple destinations and allows them to select their preferred destination according to their taste and budget.
 
@@ -32,4 +33,4 @@ json-server
 
 
 ### Future Plans
-1. Add user routes in order to effectively make, update and delete bookings of each destination.
+1. Add user routes in order to effectively make, update and delete bookings for each destination.
