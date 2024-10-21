@@ -1,7 +1,7 @@
 {
   "destinations": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Nairobi Safari Lodge",
       "location": "Nairobi, Kenya",
       "imageUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/236452593.jpg?k=a7fb309e7ebf4c2df7548cb8fe0d3ba31b3f03e1bbf9008bc8fac5b113685f5d&o=&hp=1",
@@ -19,43 +19,7 @@
       "checkOutTime": "11:00 AM"
     },
     {
-      "id": 2,
-      "name": "Maasai Mara Camp",
-      "location": "Narok, Kenya",
-      "imageUrl": "https://www.masaimara.com/assets/img/masai-mara.jpg",
-      "description": "Maasai Mara Camp offers an immersive safari experience in the heart of Africa.",
-      "cost": 600,
-      "numberOfRooms": 15,
-      "availableRooms": 12,
-      "rating": 4.7,
-      "amenities": [
-        "Guided Safari",
-        "Wi-Fi",
-        "Outdoor Dining"
-      ],
-      "checkInTime": "2:00 PM",
-      "checkOutTime": "10:00 AM"
-    },
-    {
-      "id": 3,
-      "name": "Mombasa Beach Resort",
-      "location": "Mombasa, Kenya",
-      "imageUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/57942966.jpg?k=ab62131c7cebcbbf95365acec83c5fda210aa0239e8b61290948221543f936ab&o=&hp=1",
-      "description": "Mombasa Beach Resort is a luxury beachfront property offering panoramic views of the Indian Ocean.",
-      "cost": 800,
-      "numberOfRooms": 20,
-      "availableRooms": 18,
-      "rating": 4.8,
-      "amenities": [
-        "Beachfront",
-        "Spa",
-        "Wi-Fi"
-      ],
-      "checkInTime": "3:00 PM",
-      "checkOutTime": "12:00 PM"
-    },
-    {
-      "id": 4,
+      "id": "2",
       "name": "Tsavo River Lodge",
       "location": "Tsavo, Kenya",
       "imageUrl": "https://www.congosafaristours.com/wp-content/uploads/2021/07/tsavo-lodges.jpg",
@@ -73,7 +37,43 @@
       "checkOutTime": "11:00 AM"
     },
     {
-      "id": 5,
+      "id": "3",
+      "name": "Mombasa Beach Resort",
+      "location": "Mombasa, Kenya",
+      "imageUrl": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/57942966.jpg?k=ab62131c7cebcbbf95365acec83c5fda210aa0239e8b61290948221543f936ab&o=&hp=1",
+      "description": "Mombasa Beach Resort is a luxury beachfront property offering panoramic views of the Indian Ocean.",
+      "cost": 800,
+      "numberOfRooms": 20,
+      "availableRooms": 18,
+      "rating": 4.8,
+      "amenities": [
+        "Beachfront",
+        "Spa",
+        "Wi-Fi"
+      ],
+      "checkInTime": "3:00 PM",
+      "checkOutTime": "12:00 PM"
+    },
+    {
+      "id": "4",
+      "name": "Maasai Mara Camp",
+      "location": "Narok, Kenya",
+      "imageUrl": "https://www.masaimara.com/assets/img/masai-mara.jpg",
+      "description": "Maasai Mara Camp offers an immersive safari experience in the heart of Africa.",
+      "cost": 600,
+      "numberOfRooms": 15,
+      "availableRooms": 12,
+      "rating": 4.7,
+      "amenities": [
+        "Guided Safari",
+        "Wi-Fi",
+        "Outdoor Dining"
+      ],
+      "checkInTime": "2:00 PM",
+      "checkOutTime": "10:00 AM"
+    },
+    {
+      "id": "5",
       "name": "Elewana Safari Lodge",
       "location": "Meru, Kenya",
       "imageUrl": "https://www.elewanacollection.com/images/lsc/Lewa-Safari-Camp---Tent-Interior-2.jpg",
@@ -91,7 +91,7 @@
       "checkOutTime": "11:00 AM"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Amboseli Safari Resort",
       "location": "Amboseli, Kenya",
       "imageUrl": "https://www.amboseliparkkenya.com/wp-content/uploads/2020/02/Amboseli-serena-safaris-lodge-1.jpg",
@@ -109,7 +109,7 @@
       "checkOutTime": "11:00 AM"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Watamu Beach Paradise",
       "location": "Watamu, Kenya",
       "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1f/15/93/7b/lily-palm-resort.jpg?w=1200&h=-1&s=1",
@@ -127,7 +127,7 @@
       "checkOutTime": "12:00 PM"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Diani Reef Resort",
       "location": "Diani, Kenya",
       "imageUrl": "https://dianireef.com/wp-content/uploads/2023/05/Day-Pass-Image-Special-Offers.jpg",
@@ -145,12 +145,12 @@
       "checkOutTime": "11:00 AM"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Lake Nakuru Lodge",
       "location": "Nakuru, Kenya",
       "imageUrl": "https://safarienafrique.fr/wp-content/uploads/sites/6/2024/06/bar-scaled.jpg",
       "description": "Lake Nakuru Lodge is a charming retreat offering stunning views of the famous lake, home of flamingos.",
-      "cost": 550,
+      "cost": 500,
       "numberOfRooms": 12,
       "availableRooms": 10,
       "rating": 4.3,
@@ -165,58 +165,30 @@
   ],
   "bookings": [
     {
-      "id": 1,
-      "destinationId": 1,
-      "destinationName": "Nairobi Safari Lodge",
-      "startDate": "2024-10-20",
-      "endDate": "2024-10-21"
-    },
-    {
-      "id": 2,
+      "id": "1",
       "destinationId": 3,
       "destinationName": "Mombasa Beach Resort",
       "startDate": "2024-11-01",
       "endDate": "2024-11-02"
     },
     {
-      "id": 3,
-      "destinationId": 2,
+      "id": "2",
+      "destinationId": 4,
       "destinationName": "Maasai Mara Camp",
       "startDate": "2024-10-18",
       "endDate": "2024-10-19"
     },
     {
-      "id": 4,
-      "destinationId": 8,
-      "destinationName": "Diani Reef Resort",
-      "startDate": "2024-10-22",
-      "endDate": "2024-10-23"
-    },
-    {
-      "id": 5,
-      "destinationId": 9,
-      "destinationName": "Lake Nakuru Lodge",
-      "startDate": "2024-10-24",
-      "endDate": "2024-10-25"
-    },
-    {
-      "id": 6,
-      "destinationId": 6,
-      "destinationName": "Amboseli Safari Resort",
-      "startDate": "2024-10-26",
-      "endDate": "2024-10-27"
-    },
-    {
-      "id": 7,
-      "destinationId": 1,
+      "id": 3,
+      "destinationId": "1",
       "destinationName": "Nairobi Safari Lodge",
       "startDate": "2024-10-23",
       "endDate": "2024-10-25"
     },
     {
-      "id": 8,
-      "destinationId": 3,
-      "destinationName": "Mombasa Beach Resort",
+      "id": 4,
+      "destinationId": "2",
+      "destinationName": "Tsavo River Lodge",
       "startDate": "2024-10-24",
       "endDate": "2024-10-26"
     }

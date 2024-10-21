@@ -19,8 +19,7 @@ A user:
 - can view all the available destinations : The app sends GET request for all destinations from the api
 - can view details of individual destinations: The app sends GET request for individual destination. The individual destination should have: id, name, image/s, date form, description, cost, availability, button for booking
 - can book their stay at their preferred destination : The app sends a POST request to add a booking of a specific user 
-- can cancel their stay at a specific destination : The app sends a DELETE request to cancel booking of a specific user 
-- can change the dates to which they want to visit destination: The app sends a PATCH request to modify dates for the stay in the destination and update the api.
+
 
 ### Technologies Used
 HTML
@@ -29,5 +28,6 @@ Javascript
 Bootstrap
 json-server
 
+
 ### Future Plans
-1. Implement user comment section where reviews can be made and shared.
+1. Add user routes in order to effectively make, update and delete bookings of each destination.

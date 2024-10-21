@@ -22,15 +22,16 @@ document.addEventListener("DOMContentLoaded", function(){
              behavior: "smooth"
          });
      });
-    // http://localhost:3000/destinations
-    // http://localhost:3000/bookings
-    // http://localhost:3000/users
+
     //Function that gets destinations
     function getDestinations(){
         fetch("http://localhost:3000/destinations")
         .then((res)=> res.json())
         .then((data)=>{
             scrollContentsDiv= document.getElementById("scrollable-content")
+
+             // Clear the container before populating it
+             scrollContentsDiv.innerHTML = '';
             //Loop through data and display on DOM
             for (hotel of data){
                 console.log(hotel)
@@ -49,10 +50,6 @@ document.addEventListener("DOMContentLoaded", function(){
                         </p>
                     </div>
                     <div class="buttons">
-                        <!-- <button id="changeButton" class="btn btn-info btn-sm ms-3"
-                          onclick="updateBooking(${hotel.id})">
-                            Change
-                         </button> !-->
                         <button class="btn btn-success btn-sm booking-button" 
                             data-destination-id ="${hotel.id}" 
                             data-destination-name = "${hotel.name}" 
@@ -66,29 +63,25 @@ document.addEventListener("DOMContentLoaded", function(){
 
                 // Attach event listener to each booking button
                 document.querySelectorAll(".booking-button").forEach((button) => {
-                    button.addEventListener("click", function (e) {
-                        e.preventDefault()
-                        // Get the hotel ID from the data-id attribute
-                        const hotelName = this.getAttribute("data-destination-name")
-                        console.log(hotelName)
-                        const hotelId = parseInt(this.getAttribute("data-destination-id"));
-                        
-                        // Pass the hotel ID to the booking form when clicked
-                        setupBookingForm(hotelId, hotelName);
+                    button.addEventListener("click", function() {
+                        // Call setupBookingForm when the button is clicked with data attributes from div
+                        setupBookingForm(this.getAttribute("data-destination-id"), this.getAttribute("data-destination-name"));
                     });
                 });
-
             }
+            //call mainDisplay function with default id of first destination
+            getMainDisplay(data[0].id)
         })
     }
-    //Function that gets clicked destination and displays on main div , on DOM reload displays the first destination
-    function getMainDisplay(destinationId =1 ){
+    //Function that gets main display destination details
+    function getMainDisplay(destinationId){
         fetch(`http://localhost:3000/destinations/${destinationId}`)
         .then((response) => response.json())
         .then((data) => {
-            //Display the main div with destination selected
-            mainDiv = document.getElementById("main-description")
-            mainDiv.innerHTML = `
+
+            mainDiv = document.getElementById("main-description") //Access the mainDiv
+            mainDiv.innerHTML = "" //Clear previous content
+            mainDiv.innerHTML += `
             <h2 class="fw-bold">${data.name}</h2>
                 <div class="description-labels">
                     <p class="fs-6 fw-bold">${data.location}</p>
@@ -101,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function(){
                     </p>
 
                 </div>
-                <button class="booking-btn btn btn-success"
+                <button class="booking-btn btn btn-success" id="mainBookingBtn"
                     data-destination-id ="${data.id}" 
                     data-destination-name = "${data.name}" 
                     data-bs-toggle="modal" 
@@ -112,16 +105,23 @@ document.addEventListener("DOMContentLoaded", function(){
                    
                 </div> 
             `
+            //Change the background image
             mainSectionImg = document.getElementById("main-section")
             mainSectionImg.style.backgroundImage = `url('${data.imageUrl}')`;
 
-
+            //Attach event listener to booking button
+            let mainBookingButton = document.getElementById("mainBookingBtn")
+            mainBookingButton.addEventListener("click", function() {
+                // Call setupBookingForm with data attributes from div
+                setupBookingForm(this.getAttribute("data-destination-id"), this.getAttribute("data-destination-name"));
+            });
+            
         }); 
     } 
     
-    //Function that handles click of any description div to display main
+    //Function that handles the click of destinations and calls mainDisplay function
     function handleDescriptionDiv() {
-        // After destinations are rendered, attach click listeners to each .description-mini
+        // Attach click listeners to each .description-mini
         const container = document.getElementById("scrollable-content");
     
         // Event delegation: Attach event listener to the parent container
@@ -137,8 +137,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 };
             });
     }
-    
-    
+
     //Define global variable that will store bookings id for increment
     let bookingsId= []
 
@@ -147,102 +146,64 @@ document.addEventListener("DOMContentLoaded", function(){
         fetch('http://localhost:3000/bookings')
             .then((response) => response.json())
             .then((data) => {
-                for(let item of data){
-                    bookingsId.push(parseInt(item.id)) //adds ids to bookingId array
-                    
-                }
+                //loop through data then for each data.id push it to the bookingId array
+                data.forEach(booking => bookingsId.push(parseInt(booking.id)))
             })
-            .catch((error) => {
-                console.error('Error fetching bookings:', error);
-            });
     }
 
 
-        //function that posts new booking 
-        function setupBookingForm(hotelId, hotelName) {
-        //get values from date form submit
-        document.getElementById("bookingForm").addEventListener("submit" ,function(e) {
-            e.preventDefault(); // Prevent default form submission
-    
-            let startDate = document.getElementById("startDate").value;
-            let endDate = document.getElementById("endDate").value;
-
-            //get the highest id from array using reduce
-            //Sets max as 0, then compares with booking id to return the highest value
-            let highestId = bookingsId.reduce((max, booking) => booking > max ? booking : max, 0);
-
-             // Fetch the modal element in order to close on submit
-            const modalElement = document.getElementById('exampleModal');
-            const modal = bootstrap.Modal.getInstance(modalElement); 
-            modal.hide()
-
-    
-            // Post it to booking, booking needs destination id
-            fetch('http://localhost:3000/bookings', {
-                method: 'POST',
-                body: JSON.stringify({
-                    destinationId: hotelId,
-                    destinationName:hotelName, 
-                    startDate: startDate,
-                    endDate: endDate,
-                    id: highestId+ 1
-                }),
-                headers: {
-                    'Content-Type': 'application/json; charset=UTF-8',
-                },
-            })
-            .then((response) => response.json())
-            .then((json) => {
-                alert(`You have successfully made a booking at ${hotelName}`)
-
-            })
-        })
-        
-    }
-
-    //Function that delete booking
-    function deleteBooking(id){
-        fetch(`http://localhost:3000/bookings/${id}`, {
-            method: 'DELETE',
+    //function that listens to form submit event then calls postBooking function
+    function setupBookingForm(hotelId, hotelName) {
+        const bookingForm = document.getElementById("bookingForm");
+        bookingForm.removeEventListener("submit", postBooking);
+        bookingForm.addEventListener("submit", function(e) {
+            postBooking(e, hotelId, hotelName);  // Pass the hotel ID and name directly
         });
-
-
     }
-    //Function that updates 
-    function updateBooking(id){
-        //Get the modal form appear
-        let modalForm = new bootstrap.Modal(document.getElementById('exampleModal'));
-        modalForm.show();  // This will show the modal
-        //Listen to form submit event
-        document.getElementById("bookingForm").addEventListener("submit" ,function(e) {
-            e.preventDefault(); // Prevent default form submission
-    
-            let startDate = document.getElementById("startDate").value;
-            let endDate = document.getElementById("endDate").value;
 
-            fetch(`http://localhost:3000/bookings/${id}`, {
-                method: 'PATCH',
-                body: JSON.stringify({
+    //function that posts new booking
+    function postBooking(e, hotelId, hotelName) {
+        e.preventDefault(); // Prevent default form submission
+
+        let startDate = document.getElementById("startDate").value;
+        let endDate = document.getElementById("endDate").value;
+
+        // Check that startDate, endDate, hotelId, and hotelName are valid
+        if (!startDate || !endDate) {
+            alert("Please fill in all booking details.");
+            return;
+        }
+
+        // Get the highest id from the bookings array to add id in db.json
+        let highestId = bookingsId.reduce((max, booking) => booking > max ? booking : max, 0);
+
+        // Post it to booking
+        fetch('http://localhost:3000/bookings', {
+            method: 'POST',
+            body: JSON.stringify({
+                destinationId: hotelId,
+                destinationName: hotelName, 
                 startDate: startDate,
-                endDate:endDate
-                }),
-                headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-                },
-            })
-                .then((response) => response.json())
-                .then((json) => console.log(json));
-            
+                endDate: endDate,
+                id: highestId + 1
+            }),
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            alert(`You have successfully made a booking at ${hotelName}`);
 
+            // Add the new id in the bookingid
+            bookingsId.push(highestId + 1);
         })
     }
 
 //Call the functions
 getDestinations()
-getMainDisplay()
 fetchBookings()
 handleDescriptionDiv()
-
 scrollToLeft()
 scrollToRight()
 
