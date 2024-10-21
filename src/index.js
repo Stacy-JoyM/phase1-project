@@ -199,6 +199,11 @@ document.addEventListener("DOMContentLoaded", function(){
             bookingsId.push(highestId + 1);
 
 
+            // Clear form fields
+            document.getElementById("startDate").value = "";
+            document.getElementById("endDate").value = "";
+
+
              // Close the modal using Bootstrap's modal API
             const modalElement = document.getElementById('exampleModal');
             const modal = bootstrap.Modal.getInstance(modalElement);
